@@ -1,0 +1,8 @@
+#ifndef INPUT
+#define INPUT
+
+// Keyboard port se data lene ke liye function
+unsigned char inb(unsigned short port);
+void scan(char* buffer);
+
+#endif

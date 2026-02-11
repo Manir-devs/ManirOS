@@ -1,0 +1,30 @@
+#ifndef TEXTS
+#define TEXTS
+#include <stdarg.h>
+
+#define MAX_FILES 20
+#define FILE_DATA_SIZE 256
+
+typedef struct {
+    char name[20];
+    char content[FILE_DATA_SIZE];
+    int is_dir;
+    int used;
+    int parent_idx; // For cd logic
+} File;
+
+// Hardware IO
+unsigned char inb(unsigned short port);
+void outb(unsigned short port, unsigned char data);
+
+// Library Functions
+void screen_clear();
+void print(char* format, ...);
+int strcmp(char* s1, char* s2);
+void strcpy(char* dest, char* src);
+int strlen(char* s);
+void putchar(char c);
+char get_char();
+void update_cursor(int x, int y);
+
+#endif
