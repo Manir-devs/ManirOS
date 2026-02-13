@@ -10,35 +10,37 @@
 ---
 
 ## 🚀 What is ManirOS?
-ManirOS is a native, raw, and high-performance **x86 text-mode operating system** built from scratch. No Linux kernel, no bloatware—just pure code running directly on the metal. It features a custom **CLI Shell**, a **Virtual File System (VFS)**, and an integrated **Text Editor**.
+ManirOS is a hobbyist **x86 text-mode operating system** built from scratch. It's not "high-performance" yet, and it's definitely not famous—it's just me exploring how computers work at the lowest level. Currently, I've managed to build a basic **Functional Terminal (Shell)** that runs directly on the hardware.
 
 > "2 years of grind, 1 day of swag... Mom, I'm finally on GitHub!" — Manir
 
 ---
 
-## ✨ Features
-- ⌨️ **PS/2 Keyboard Driver:** Fully functional keyboard support using Polling Mode.
-- 📁 **Virtual File System (VFS):** Manage your files and directories with `mkdir`, `mkfile`, and `cd`.
-- 📝 **Manir-Editor:** A built-in terminal-based editor with `ESC` to save/exit functionality.
-- 🖱️ **Hardware Cursor Support:** Real-time hardware cursor blinking at the point of interaction.
-- 🛠️ **Multiboot Compliant:** Seamlessly runs on industry-standard emulators like **QEMU** and **Bochs**.
+## ✨ Current Progress
+- 🖥️ **Basic Shell:** A simple command-line interface to interact with the kernel.
+- ⌨️ **Keyboard Support:** Basic PS/2 keyboard driver implementation.
+- 📺 **VGA Text Mode:** Printing strings and managing the screen buffer (0xB8000).
+- 🏗️ **Bootloader:** Custom ASM code to jump into 32-bit Protected Mode.
 
 ---
 
 ## 🛠️ Build & Run Setup
 
+Based on the project structure, you need specific cross-compilation tools to avoid conflicts with your host OS headers.
+
 ### Prerequisites
-Ensure you have the following tools installed:
-- **Assembler:** `nasm`
-- **Compiler:** `gcc` (i686-elf-gcc recommended for cross-compiling)
-- **Build Tool:** `make`
-- **Emulator:** `qemu-system-i386`
+* **NASM:** To assemble the bootloader.
+* **GCC (i686-elf):** For compiling C code without standard libraries.
+* **Binutils:** For linking the objects.
+* **QEMU:** To emulate the x86 environment.
 
 ---
 
-### 🐧 On Linux (Kali/Ubuntu/Debian)
+### 🐧 On Linux (Kali/Ubuntu)
 
 1. **Install Dependencies:**
    ```bash
    sudo apt update
-   sudo apt install nasm gcc make qemu-system-x86 binutils
+   sudo apt install nasm mtools qemu-system-x86 build-essential
+   # If you don't have a cross-compiler:
+   sudo apt install gcc-multilib
