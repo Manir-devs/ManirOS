@@ -58,12 +58,11 @@ ld -m elf_i386 -T linker.ld -o ManirOS.bin boot.o kernel.o
 # 2. Run
 qemu-system-i386 -kernel ManirOS.bin
 ```
+## 🤝 How to Help & Contribute
 
-### 🤝 How to Help & Contribute
-<b>Issues:</b> Bug mile toh report karo (zaroor milenge!).
+ManirOS is my baby, and it’s still learning how to crawl! If you want to help me make it walk (or run), here’s how you can join the fun:
 
-<b>Drivers:</b> Help me write drivers for Mouse or PC Speaker.
-
-PRs: Fork karo, feature branch banao (git checkout -b feature/NewThing), aur Pull Request maar do.
-
-Code Review: kernel.c check karke batao kahan galti hai.
+* **🐛 Bug Hunting:** If you find a bug (and trust me, they’re everywhere), please open an **Issue**. I won't bite, but the bugs might!
+* **⌨️ Driver Squad:** Help me teach the OS how to talk to a **Mouse** or make some noise with the **PC Speaker**.
+* **✨ Pull Requests:** Fork the repo, create a cute little feature branch (`git checkout -b feature/CoolStuff`), and send a **PR**.
+* **👀 Code Review:** Take a peek at `kernel.c` and tell me where I’m being a total "noob". Honest feedback is the best gift!
