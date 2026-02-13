@@ -47,7 +47,7 @@ sudo apt update && sudo apt install nasm mtools qemu-system-x86 build-essential 
 make clean && make
 qemu-system-i386 -kernel ManirOS.bin
 ```
-####On Windows
+#### On Windows
 ```bash
 # 1. Manual Build (using MSYS2/MinGW)
 nasm -f elf32 boot.asm -o boot.o
@@ -58,3 +58,12 @@ ld -m elf_i386 -T linker.ld -o ManirOS.bin boot.o kernel.o
 # 2. Run
 qemu-system-i386 -kernel ManirOS.bin
 ```
+
+### 🤝 How to Help & Contribute
+<b>Issues:</b> Bug mile toh report karo (zaroor milenge!).
+
+<b>Drivers:</b> Help me write drivers for Mouse or PC Speaker.
+
+PRs: Fork karo, feature branch banao (git checkout -b feature/NewThing), aur Pull Request maar do.
+
+Code Review: kernel.c check karke batao kahan galti hai.
