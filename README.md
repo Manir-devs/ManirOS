@@ -1,4 +1,4 @@
-# 💻 ManirOS v3.0
+# 💻 ManirOS v1.0
 
 <p align="center">
   <img src="https://img.shields.io/badge/OS-Custom--Kernel-blue?style=for-the-badge&logo=linux" />
@@ -12,7 +12,7 @@
 ## 🚀 What is ManirOS?
 ManirOS is a hobbyist **x86 text-mode operating system** built from scratch. It's not "high-performance" yet, and it's definitely not famous—it's just me exploring how computers work at the lowest level. Currently, I've managed to build a basic **Functional Terminal (Shell)** that runs directly on the hardware.
 
-> "2 years of grind, 1 day of swag... Mom, I'm finally on GitHub!" — Manir
+> "Writing an OS is 10% coding and 90% staring at a black screen wondering why the cursor isn't blinking.lol"
 
 ---
 
@@ -35,12 +35,23 @@ Based on the project structure, you need specific cross-compilation tools to avo
 * **QEMU:** To emulate the x86 environment.
 
 ---
+### 🛠️ How to Build and Run
 
-### 🐧 On Linux (Kali/Ubuntu)
+#### 🐧 On Linux (Kali / Ubuntu)
+```bash
+# 1. Install Dependencies
+sudo apt update && sudo apt install nasm mtools qemu-system-x86 build-essential gcc-multilib
 
-1. **Install Dependencies:**
-   ```bash
-   sudo apt update
-   sudo apt install nasm mtools qemu-system-x86 build-essential
-   # If you don't have a cross-compiler:
-   sudo apt install gcc-multilib
+# 2. Build & Run
+make clean && make
+qemu-system-i386 -kernel ManirOS.bin
+
+####On Windows
+```bash
+# 1. Manual Build (using MSYS2/MinGW)
+nasm -f elf32 boot.asm -o boot.o
+gcc -m32 -c kernel.c -o kernel.o -ffreestanding -O0 -Wall
+ld -m elf_i386 -T linker.ld -o ManirOS.bin boot.o kernel.o
+
+# 2. Run
+qemu-system-i386 -kernel ManirOS.bin
