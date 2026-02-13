@@ -60,9 +60,10 @@ qemu-system-i386 -kernel ManirOS.bin
 ```
 ## 🤝 How to Help & Contribute
 
-ManirOS is my baby, and it’s still learning how to crawl! If you want to help me make it walk (or run), here’s how you can join the fun:
+ManirOS is an open-source hobby project, and I’m actively looking for collaborators to help expand its core functionality. Whether you're a low-level enthusiast or a seasoned kernel dev, your input is welcome.
 
-* **🐛 Bug Hunting:** If you find a bug (and trust me, they’re everywhere), please open an **Issue**. I won't bite, but the bugs might!
-* **⌨️ Driver Squad:** Help me teach the OS how to talk to a **Mouse** or make some noise with the **PC Speaker**.
-* **✨ Pull Requests:** Fork the repo, create a cute little feature branch (`git checkout -b feature/CoolStuff`), and send a **PR**.
-* **👀 Code Review:** Take a peek at `kernel.c` and tell me where I’m being a total "noob". Honest feedback is the best gift!
+### How you can contribute:
+* **🛠️ Bug Reporting:** If you encounter any kernel panics or unexpected behavior, please open a detailed **Issue** with steps to reproduce it in QEMU.
+* **⌨️ Driver Development:** I’m looking for help with implementing **Mouse (PS/2)** drivers, **PC Speaker** support, or **FAT12/16** file system logic.
+* **✨ Pull Requests:** Fork the repository, work on a dedicated branch (`git checkout -b feature/your-feature`), and submit a **PR**.
+* **🔍 Code Optimization:** Feel free to review `kernel.c` or the memory management and suggest more efficient ways to handle interrupts or I/O.
