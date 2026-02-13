@@ -12,7 +12,7 @@
 ## 🚀 What is ManirOS?
 ManirOS is a hobbyist **x86 text-mode operating system** built from scratch. It's not "high-performance" yet, and it's definitely not famous—it's just me exploring how computers work at the lowest level. Currently, I've managed to build a basic **Functional Terminal (Shell)** that runs directly on the hardware.
 
-> "Writing an OS is 10% coding and 90% staring at a black screen wondering why the cursor isn't blinking.lol"
+> "Writing an OS is 10% coding and 90% staring at a black screen wondering why the cursor isn't blinking. lol"
 
 ---
 
@@ -41,17 +41,20 @@ Based on the project structure, you need specific cross-compilation tools to avo
 ```bash
 # 1. Install Dependencies
 sudo apt update && sudo apt install nasm mtools qemu-system-x86 build-essential gcc-multilib
-
+```
+```bash
 # 2. Build & Run
 make clean && make
 qemu-system-i386 -kernel ManirOS.bin
-
+```
 ####On Windows
 ```bash
 # 1. Manual Build (using MSYS2/MinGW)
 nasm -f elf32 boot.asm -o boot.o
 gcc -m32 -c kernel.c -o kernel.o -ffreestanding -O0 -Wall
 ld -m elf_i386 -T linker.ld -o ManirOS.bin boot.o kernel.o
-
+```
+```bash
 # 2. Run
 qemu-system-i386 -kernel ManirOS.bin
+```
